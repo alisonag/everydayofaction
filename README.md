@@ -5,7 +5,7 @@ The website is no longer live but I've abstracted some of the code here so it ca
 
 ![Here's a mashup of screenshots](screenshot.png)
 
-![Here's an early mobile iteration](screenshot-mobile.png | width=250)
+<img src="screenshot-mobile.png" width="250" alt="mobile screenshot" />
 
 # Setting up the Calendar
 
