@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>placeholder: Every Day of Action</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v20160112">
+  <link rel="stylesheet" href="cal.css?v20160112">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+
+  <script src="clndr.js"></script>
+  <script src="calendar2.js?v20160112" type="text/javascript"></script>
+
+<meta property="og:title" content="placeholder: YOUR TITLE HERE" />
+<meta property="og:description" content="placeholder: YOUR DESCRIPTION HERE" />
+<meta property="og:image" content="placeholder: PATH TO YOUR IMAGE" /> 
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="placeholder: YOUR TITLE HERE" />
+<meta name="twitter:description" content="placeholder: YOUR DESCRIPTION HERE" /> 
+<meta name="twitter:image" content="placeholder: PATH TO YOUR IMAGE" />
+</head>
+
+<body>
+
+<div class="cal-wrap">
+  <div class="wrapper">
+    <h1><a href="https://actionnetwork.org/events/new?event_campaign_id=YOURID-placeholder" class="btn" target="_blank">add event</a>placeholder title of Calendar</h1>
+    <p>placeholder description of calendar</p>
+
+    <div class="cal1">
+       <script type="text/template" id="template-calendar">
+        <div class='clndr-controls'>
+           <div class='clndr-control-button'>
+                <span class='clndr-previous-button'>&lt;&lt; previous</span>
+            </div>
+            <div class='month-name'><%= month %> <%= year %></div>
+            <div class='clndr-control-button rightalign'>
+                <span class='clndr-next-button'>next &gt;&gt;</span>
+            </div>
+        </div>
+        <table class='clndr-table' border='0' cellspacing='0' cellpadding='0'>
+            <thead>
+                <tr class='header-days'>
+                <% for(var i = 0; i < daysOfTheWeek.length; i++) { %>
+                    <td class='header-day'><%= daysOfTheWeek[i] %></td>
+                <% } %>
+                </tr>
+            </thead>
+            <tbody>
+            <% for(var i = 0; i < numberOfRows; i++){ %>
+                <tr>
+                <% for(var j = 0; j < 7; j++){ %>
+                <% var d = j + i * 7; %>
+                    <td class='<%= days[d].classes %>' data-events="<%= days[d].events.length %>">
+                        <div class='day-contents'><%= days[d].day %>
+                        <% if(days[d].events.length > 1){ %>
+                          <div class="event-count"><%= days[d].events.length %> <span class="actions-word">actions</span></div>
+                     
+                        <% } else if(days[d].events.length == 1){ %>
+                          <div class="event-count"><%= days[d].events.length %> <span class="actions-word">action</span></div>
+                        <% } %>
+                        </div>
+                    </td>
+                <% } %>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+
+    <!-- <img src="placeholder-sponsor-logos-here.jpg" id="logos" /> -->
+
+    <div class="event-listing">
+      <div id="controls" name="events" class="controls">
+        <h2 class="event-listing-title">All events for <span class="filterTime"><%= month %> <%= year %></span> in 
+          <select name="locations" id="selectState">
+            <option value="">The World</option>
+            <optgroup label="USA">
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District Of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </optgroup>
+            <optgroup label="">
+              <option value="AS">American Samoa</option>
+              <option value="GU">Guam</option>
+
+              <option value="MP">Northern Mariana Islands</option>
+              <option value="PR">Puerto Rico</option>
+              <option value="UM">US Minor Outlying Islands</option>
+              <option value="VI">Virgin Islands</option>
+            </optgroup>
+            <optgroup label="International">
+              <option value='undefined'>All other countries</option>
+            </optgroup>
+          </select> 
+
+          </h2>
+        </div>
+
+        <div id="events-list">
+          <div class="empty-msg">
+            <%  
+            var stateSection = "None";
+            _.each(sortEvents(eventsThisMonth), function(event) {
+              if(stateSection != event.state){
+                stateSection = event.state
+                stateLookup = stateSection || 'ZZ'
+                 %>
+                </div>
+                <div class="state <%= event.state %>">
+                  <h3><%= us_state_abbrevs_names[stateLookup] %></h3>
+              <% } %>
+              <div class="event-item">
+                <li data-state="<% if(event.state){ %><%= event.state %><% } else { %>undefined<% } %>"><a href="<%= event.url %>"><span class="date"><%= moment(event.startDate).format('M/D') %></span><span class="city"><%= event.city %><% if(event.state){ %>, <%= event.state %><% } else { %>, <%= event.country %><% } %></span><span class="title"><%= event.title %></span></a></li>
+
+              </div>
+            <% }); %>
+          </div>
+        </div>
+      </script>
+    </div>
+  </div>
+
+</body>
+</html>

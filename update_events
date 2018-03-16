@@ -1,0 +1,8 @@
+#!/bin/sh
+
+date=$(date +%u)
+
+cp /var/www/html/everydayofaction.org/public_html/events-all.json /var/www/html/everydayofaction.org/backup/$date/events-all.json
+cp /root/events-all.json /var/www/html/everydayofaction.org/public_html/events-all.json
+
+php /var/www/html/everydayofaction.org/action-network/events.php
