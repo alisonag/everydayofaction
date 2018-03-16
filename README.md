@@ -1,5 +1,5 @@
 # Every Day of Action
-This tool was built as part of an effort to organize actions every day across the world for NoDAPL. These events were submitted through ActionNetwork, but AN did not have a calendar view so this was meant to fill that gap. 
+This tool was built as part of an effort to organize actions every day across the world for NoDAPL. These events were submitted through [Action Network](https://actionnetwork.org/), but it did not have a calendar view so this was meant to fill that gap. This pulls events from the Action Network API and allows you to filter by date and/or by state.
 
 The website is no longer live but I've abstracted some of the code here so it can be used on other campaigns. Be warned that this was built over the span of a few weeknights so it's fairly scrappy.
 
