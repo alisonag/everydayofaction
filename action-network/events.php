@@ -12,7 +12,7 @@ function addToQueue( $resource, $endpoint, $index, $total ) {
 		);
 	}
 
-$api_key = "placeholder: YOUR API KEY HERE"
+$api_key = getenv('ACTION_NETWORK_API_KEY', true) ?: getenv('ACTION_NETWORK_API_KEY')
 $event_campaign = "event_campaigns/placeholder-YOUR-EVENT-CAMPAIGN-ID/events"
 
 $account = new ActionNetwork($api_key);

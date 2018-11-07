@@ -9,7 +9,7 @@
 
 class ActionNetwork {
 
-	private $api_key = 'placeholder-YOUR API KEY HERE';
+	private $api_key = getenv('ACTION_NETWORK_API_KEY', true) ?: getenv('ACTION_NETWORK_API_KEY');
 	
 	private $api_version = '2';
 	private $api_base_url = 'https://actionnetwork.org/api/v2/';

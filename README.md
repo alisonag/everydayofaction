@@ -1,7 +1,7 @@
 # Every Day of Action
 This tool was built in collaboration with [NoDAPL](https://www.democracynow.org/2017/2/8/water_protectors_call_for_global_mass) organizers as part of an effort to organize actions every day across the world. These events were submitted through [Action Network](https://actionnetwork.org/), but it did not have a calendar view so this was meant to fill that gap. This pulls events from the Action Network API and allows you to filter by date and/or by state.
 
-The website is no longer live but I've abstracted some of the code here so it can be used on other campaigns. Be warned that this was built over the span of a few weeknights so it's fairly scrappy.
+The website is no longer live but I've abstracted some of the code here so it can be used on other campaigns. Be warned that this was built quickly, over the span of a few weeknights, so it's fairly scrappy.
 
 ![Here's a mashup of screenshots](screenshot.png)
 
@@ -11,25 +11,27 @@ The website is no longer live but I've abstracted some of the code here so it ca
 
 Note: All fields that need replacing to customize the calendar to a different campaign have the word `placeholder`
 
-## API Key and Event Campaign URI
+You'll need the Action Network API key, saved to an environmental variable called `ACTION_NETWORK_API_KEY`, for the account that created the campaign. 
 
-You'll need the Action Network API key for the account that created the campaign. Once you have that, you'll need to figure out the campaign's URI by querying the API's `event_campaign` endpoint. More about that here: https://actionnetwork.org/docs/v2/event_campaigns
+## Event Campaign URI
+
+Once you have your API key, you'll need to figure out the campaign's URI by querying the API's `event_campaign` endpoint. Please forgive me for not building a way to programmatically look that up. More about how to do it here: https://actionnetwork.org/docs/v2/event_campaigns
 
 The calendar needs a path that looks something like this: https://actionnetwork.org/api/v2/event_campaigns/d91b4b2e-ae0e-4cd3-9ed7-d0ec501b0bc3/events
 
-Once you have the API key and the event campaign URI, add these to the [events.php](action-network/events.php) and [actionnetwork.class.php](action-network/actionnetwork.class.php) files.
+Add this to the [events.php](action-network/events.php) file.
 
 ## Getting data from the API
 
 Next you'll need to use the events.php scrip to generate the json file of data. You can do this by running the [events.php](action-network/events.php) script from the command line to test it out. 
 
-To get the calendar to update itself automatically you'll need to set up a cron job. You can use the bash script [update_events](update-events). You'll want to modify this bash script to match your server/directory structure. Currently this bash script also backs up the json for up to 7 days. You'll want a cron job for this in order to stay under the API's rate-limits and reduce strain on the server.
+To get the calendar to update itself automatically you'll need to set up a cron job. You can use the bash script [update_events](update-events). You may need to modify this bash script to match your server/directory structure. Currently this script also backs up the JSON for up to 7 days. You'll need a cron job for this in order to stay under the API's rate-limits and reduce strain on the server.
 
-Ultimately this json file needs to live in the same directory as the HTML page.
+Ultimately this JSON file needs to live in the same directory as the HTML page.
 
 ## Viewing the calendar
 
-Once the json file has all your data, ensure that it is in the same directory as [index.html](public_html/index.html) and open the html file in your browser. You'll want to customize the meta-data, title, description, and "add event" url. Search for the word `placeholder` to find all the places that need customizing. 
+Once the JSON file has all your data, ensure that it is in the same directory as [index.html](public_html/index.html) and open the html file in your browser. You'll need to customize the meta-data, title, description, and "add event" url. Search for the word `placeholder` to find all the places that need customizing. 
 
 # About the files
 
